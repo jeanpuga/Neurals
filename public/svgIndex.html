@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<header>
+    </head>
+
+    <body onload='main()'>
+        <input id="text1" type="text" min-text="20" />
+        <svg id='svg' height="200px" width="500px"></svg>
+
+
+        <script type="text/javascript">
+            //(function (window, document, undefined) {
+            //    var name = 'Todd';
+            //})(window, document);
+
+
+
+            function circle(x, y, fator) {
+                const svgNS = "http://www.w3.org/2000/svg";
+                const svg = document.getElementById('svg');
+                const w = parseFloat(svg.getAttributeNS(null, 'width'));
+                const h = parseFloat(svg.getAttributeNS(null, 'height'));
+                const circle = document.createElementNS(svgNS, "circle");
+                circle.setAttributeNS(null, "cx", x || 0);
+                circle.setAttributeNS(null, "cy", y || 0);
+                circle.setAttributeNS(null, "r", fator || 0);
+                circle.setAttributeNS(null, "fill", "#f72");
+                circle.setAttributeNS(null, "stroke", "none");
+                svg.appendChild(circle);
+
+
+                document.getElementById('text1').value = h / fator;
+            }
+
+            function rect(x, y, fator) {
+                const svgNS = "http://www.w3.org/2000/svg";
+                const svg = document.getElementById('svg');
+                const w = parseFloat(svg.getAttributeNS(null, 'width'));
+                const h = parseFloat(svg.getAttributeNS(null, 'height'));
+                const rect = document.createElementNS(svgNS, 'rect');
+                rect.setAttributeNS(null, 'x', x);
+                rect.setAttributeNS(null, 'y', y);
+                rect.setAttributeNS(null, 'height', fator * 2);
+                rect.setAttributeNS(null, 'width', fator * 2);
+                rect.setAttributeNS(null, 'fill', '#' + Math.round(0xffffff * Math.random()).toString(16));
+                svg.appendChild(rect);
+
+
+            }
+
+            function line(x1, x2, y1, y2) {
+                const svgNS = "http://www.w3.org/2000/svg";
+                const svg = document.getElementById('svg');
+                const w = parseFloat(svg.getAttributeNS(null, 'width'));
+                const h = parseFloat(svg.getAttributeNS(null, 'height'));
+                const line = document.createElementNS(svgNS, 'line');
+
+                line.setAttributeNS(null, 'x1', x1 || 0);
+                line.setAttributeNS(null, 'x2', x2 || 0);
+                line.setAttributeNS(null, 'y1', y1 || 0);
+                line.setAttributeNS(null, 'y2', y2 || 0);
+                line.setAttributeNS(null, 'stroke', 'rgb(150,170,190)');
+                line.setAttributeNS(null, 'stroke-width', 1.5);
+
+                svg.appendChild(line);
+
+            }
+
+
+
+            const dim = (a) => {
+                console.log(`${a.length}x${a[0].length}`)
+            }
+
+
+
+
+            const main = () => {
+
+
+
+                // circle(50, 50, 20);
+                // circle(50, 100, 20);
+                // circle(50, 150, 20);
+                // circle(50, 200, 20);
+
+
+                // line(50 + 20, 200, 50, 75);
+                // line(50 + 20, 200, 50, 125);
+                // line(50 + 20, 200, 50, 175);
+
+                // line(50 + 20, 200, 50, 75);
+                // line(50 + 20, 200, 50, 125);
+                // line(50 + 20, 200, 50, 175);
+
+                // line(50 + 20, 200, 100, 75);
+                // line(50 + 20, 200, 100, 125);
+                // line(50 + 20, 200, 100, 175);
+
+                // line(50 + 20, 200, 150, 75);
+                // line(50 + 20, 200, 150, 125);
+                // line(50 + 20, 200, 150, 175);
+
+                // line(50 + 20, 200, 200, 75);
+                // line(50 + 20, 200, 200, 125);
+                // line(50 + 20, 200, 200, 175);
+
+                // rect(200, 50, fator);
+                // rect(200, 100, fator);
+                // rect(200, 150, fator);
+
+
+                // line(200 + fator + fator, 330, 50 + fator, 75 + fator);
+                // line(200 + fator + fator, 330, 50 + fator, 125 + fator);
+
+                // line(200 + fator + fator, 330, 100 + fator, 75 + fator);
+                // line(200 + fator + fator, 330, 100 + fator, 125 + fator);
+
+                // line(200 + fator + fator, 330, 150 + fator, 75 + fator);
+                // line(200 + fator + fator, 330, 150 + fator, 125 + fator);
+
+                // circle(350, 75 + fator, 20);
+                // circle(350, 125 + fator, 20);
+
+                var x = [
+                    [0.05],
+                    [.1],
+                    [1]
+                ];
+                var wa = [
+                    [.15, .25],
+                    [.20, .3],
+                    [.35, .35]
+                ];
+                var wb = [
+                    [.4, .50],
+                    [.45, .55],
+                    [.6, .6]
+                ];
+
+                var y = [
+                    [1],
+                    [1]
+                ];
+
+                //view(x, wa, (e) => e, wb, y);
+
+                x = [
+                    [0.05],
+                    [.1],
+                    [.1],
+                    [.1],
+                    [1]
+                ];
+
+                grid(x, x, 40);
+
+
+            }
+
+
+
+            const load = (rows, cols = 6) => {
+                // const svgNS = "http://www.w3.org/2000/svg";
+                // const svg = document.getElementById('svg');
+                // const w = parseFloat(svg.getAttributeNS(null, 'width'));
+                // const h = parseFloat(svg.getAttributeNS(null, 'height'));
+                // fator = h / rows;
+                // margin = fator / rows;
+                // fatorBrut = (fator * 2) + margin;
+                // dist = w / cols;
+
+
+
+            }
+
+            const grid = (x, y, margin) => {
+                let w = 500 - (2 * margin);
+                let h = 200 - (2 * margin);
+
+                var stepX = w / x.length;
+                var stepY = h / y.length;
+
+                x.forEach((e, i) => line(stepY, w + margin, stepY * (i + 1), stepY * (i + 1)));
+                //line(0, 500, stepX * x.length, stepX * x.length)
+                y.forEach((e, i) => line(stepX * (i + 1), stepX * (i + 1), stepX, h + margin));
+                //line(stepY * y.length, stepY * y.length, 0, 200)
+
+
+            }
+
+            const view = (x, wa, f, wb, y) => {
+                const svgNS = "http://www.w3.org/2000/svg";
+                const svg = document.getElementById('svg');
+                const w = parseFloat(svg.getAttributeNS(null, 'width'));
+                const h = parseFloat(svg.getAttributeNS(null, 'height'));
+                const rows = 10;
+                const cols = 6;
+
+                const fator = h / rows;
+                const margin = fator / rows;
+                const fatorBrut = (fator * 2) + margin;
+                const dist = w / cols;
+
+                load(x.length > wa.length ? x.length : w.length);
+
+                x.forEach((e, i) => circle(fatorBrut, fatorBrut * (i + 1), fator));
+                wa.forEach((e, i) =>
+                    e.forEach((ee, ii) => line((fatorBrut + fator), fatorBrut + dist, fatorBrut * (i + 1), (fatorBrut * (ii + 1)) + fator)));
+
+
+
+            }
+        </script>
+
+
+
+    </body>
+
+</html>
